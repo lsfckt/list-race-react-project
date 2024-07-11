@@ -2,25 +2,6 @@ export default function Footer() {
     return (
         <footer id="footer" className="footer">
             <div className="container">
-                <div className="footer-menu">
-                    <div className="row">
-                        <div className="col-sm-3">
-                            <div className="navbar-header">
-                                <a className="navbar-brand" href="index.html">list<span>race</span></a>
-                            </div>
-                        </div>
-                        <div className="col-sm-9">
-                            <ul className="footer-menu-item">
-                                <li className="scroll"><a href="#works">how it works</a></li>
-                                <li className="scroll"><a href="#explore">explore</a></li>
-                                <li className="scroll"><a href="#reviews">review</a></li>
-                                <li className="scroll"><a href="#blog">blog</a></li>
-                                <li className="scroll"><a href="#contact">contact</a></li>
-                                <li className=" scroll"><a href="#contact">my account</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div className="hm-footer-copyright">
                     <div className="row">
                         <div className="col-sm-5">
