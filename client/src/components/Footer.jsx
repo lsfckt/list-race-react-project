@@ -25,7 +25,7 @@ export default function Footer() {
                     <div className="row">
                         <div className="col-sm-5">
                             <p>
-                                &copy;copyright. designed and developed by <a href="https://www.themesine.com/">themesine</a>
+                                &copy;copyright. developed by <a href="#">Aleksandar Stoyanov</a>
                             </p>
                         </div>
                         <div className="col-sm-7">
