@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import ListTopics from "./components/ListTopics";
 import TopArea from "./components/TopArea";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <TopArea />
       <Home />
+      <ListTopics />
       <Footer />
     </>
   )
