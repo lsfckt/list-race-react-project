@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Home from "./components/Home";
 import TopArea from "./components/TopArea";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <Header />
       <TopArea />
+      <Home />
       <Footer />
     </>
   )
