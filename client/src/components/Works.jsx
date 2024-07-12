@@ -1,7 +1,9 @@
+import styles from './Works.module.css';
+
 export default function Works() {
 
     return (
-        <section id="works" className="works">
+        <section id="works" className={styles.works}>
             <div className="container">
                 <div className="section-header">
                     <h2>how it works</h2>
