@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
 
     return (
@@ -21,7 +23,7 @@ export default function Header() {
                                 </select>
                             </li>
                             <li className="select-opt">
-                                <a href="#"><span className="lnr lnr-magnifier"></span></a>
+                                <Link to="/"><span className="lnr lnr-magnifier"></span></Link>
                             </li>
                         </ul>
                     </div>
@@ -33,10 +35,10 @@ export default function Header() {
                                 +1 222 777 6565
                             </li>
                             <li className="header-top-contact">
-                                <a href="#">Sign in</a>
+                                <Link to="/sign">Sign in</Link>
                             </li>
                             <li className="header-top-contact">
-                                <a href="#">Register</a>
+                                <Link to="/login">Register</Link>
                             </li>
                         </ul>
                     </div>
