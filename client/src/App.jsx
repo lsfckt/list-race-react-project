@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import HowItWorks from "./components/HowItWorks";
 import TopArea from "./components/TopArea";
+import Explore from './components/Explore';
+import Reviews from './components/Reviews';
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />}/>
                 <Route path='/howitworks' element={<HowItWorks />} />
+                <Route path='/explore' element={<Explore />} />
+                <Route path='/reviews' element={<Reviews />} />
             </Routes>
 
             <Footer />
