@@ -6,7 +6,7 @@ export default function Footer() {
                     <div className="row">
                         <div className="col-sm-5">
                             <p>
-                                &copy;copyright. developed by <a href="#">Aleksandar Stoyanov</a>
+                                &copy;copyright. developed by Aleksandar Stoyanov
                             </p>
                         </div>
                         <div className="col-sm-7">
