@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function TopArea() {
 
     return (
@@ -12,18 +14,18 @@ export default function TopArea() {
                             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <a className="navbar-brand" href="index.html">list<span>race</span></a>
+                            <Link className="navbar-brand" to="/">list<span>race</span></Link>
 
                         </div>
 
                         <div className="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                             <ul className="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                                <li className=" scroll active"><a href="#home">home</a></li>
-                                <li className="scroll"><a href="#works">how it works</a></li>
-                                <li className="scroll"><a href="#explore">explore</a></li>
-                                <li className="scroll"><a href="#reviews">review</a></li>
-                                <li className="scroll"><a href="#blog">blog</a></li>
-                                <li className="scroll"><a href="#contact">contact</a></li>
+                                <li className=" scroll active"><Link to="/">home</Link></li>
+                                <li className="scroll"><Link to="/howitworks">how it works</Link></li>
+                                <li className="scroll"><Link to="/explore">explore</Link></li>
+                                <li className="scroll"><Link to="/reviews">review</Link></li>
+                                <li className="scroll"><Link to="/blog">blog</Link></li>
+                                <li className="scroll"><Link to="/contact">contact</Link></li>
                             </ul>
                         </div>
                     </div>
