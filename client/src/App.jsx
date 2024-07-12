@@ -7,6 +7,9 @@ import HowItWorks from "./components/HowItWorks";
 import TopArea from "./components/TopArea";
 import Explore from './components/Explore';
 import Reviews from './components/Reviews';
+import Blog from './components/Blog';
+import Contact from './components/Contact';
+import NotFound from './components/NotFound';
 
 function App() {
 
@@ -14,12 +17,15 @@ function App() {
         <>
             <Header />
             <TopArea />
-            
+
             <Routes>
                 <Route path='/' element={<Home />}/>
                 <Route path='/howitworks' element={<HowItWorks />} />
                 <Route path='/explore' element={<Explore />} />
                 <Route path='/reviews' element={<Reviews />} />
+                <Route path='/blog' element={<Blog />} />
+                <Route path='/contact' element={<Contact />} />
+                <Route path='*' element={<NotFound />} />
             </Routes>
 
             <Footer />
