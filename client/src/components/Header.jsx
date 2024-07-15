@@ -9,20 +9,6 @@ export default function Header() {
                     <div className="header-top-left">
                         <ul>
                             <li className="select-opt">
-                                <select name="language" id="language">
-                                    <option value="default">EN</option>
-                                    <option value="Bangla">BN</option>
-                                    <option value="Arabic">AB</option>
-                                </select>
-                            </li>
-                            <li className="select-opt">
-                                <select name="currency" id="currency">
-                                    <option value="usd">USD</option>
-                                    <option value="euro">Euro</option>
-                                    <option value="bdt">BDT</option>
-                                </select>
-                            </li>
-                            <li className="select-opt">
                                 <Link to="/"><span className="lnr lnr-magnifier"></span></Link>
                             </li>
                         </ul>
@@ -35,10 +21,10 @@ export default function Header() {
                                 +1 222 777 6565
                             </li>
                             <li className="header-top-contact">
-                                <Link to="/sign">Sign in</Link>
+                                <Link to="/login">Login</Link>
                             </li>
                             <li className="header-top-contact">
-                                <Link to="/login">Register</Link>
+                                <Link to="/register">Register</Link>
                             </li>
                         </ul>
                     </div>
