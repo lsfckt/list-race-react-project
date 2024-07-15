@@ -26,6 +26,9 @@ export default function Header() {
                             <li className="header-top-contact">
                                 <Link to="/register">Register</Link>
                             </li>
+                            <li className="header-top-contact">
+                                <Link to="/register/business">Add your business</Link>
+                            </li>
                         </ul>
                     </div>
                 </li>
