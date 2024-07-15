@@ -16,7 +16,7 @@ export default function Contact() {
                             <form action="#">
                                 <input type="email" className="subscription-input-form" placeholder="Enter your email here" />
                                     <button className="appsLand-btn subscribe-btn" onclick="window.location.href='#'">
-                                        creat account
+                                        Continue with email
                                     </button>
                             </form>
                         </div>
