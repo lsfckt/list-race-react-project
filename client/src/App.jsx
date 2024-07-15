@@ -11,6 +11,7 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import Register from './components/Register';
+import Login from './components/Login';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path='*' element={<NotFound />} />
 
                 <Route path='/register' element={<Register />} />
+                <Route path='/login' element={<Login />} />
             </Routes>
 
             <Footer />
