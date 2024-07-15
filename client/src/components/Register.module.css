@@ -1,0 +1,32 @@
+.create-pass-layout {
+    background-color: #f8fafb;
+    padding: 150px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.create-pass-title {
+    font-weight: 700;
+}
+
+.create-pass-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.password,
+.confirm-password {
+    padding: 4px 8px;
+}
+
+.create-btn-submit {
+    color: white;
+    background-color: #FF545A;
+    font-weight: 500;
+    font-size: 1.7em;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
