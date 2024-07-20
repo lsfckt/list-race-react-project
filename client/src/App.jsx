@@ -1,17 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import HowItWorks from "./components/HowItWorks";
-import TopArea from "./components/TopArea";
-import Explore from './components/Explore';
-import Reviews from './components/Reviews';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
-import NotFound from './components/NotFound';
-import Register from './components/Register';
-import Login from './components/Login';
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import HowItWorks from "./components/HowItWorks/HowItWorks";
+import TopArea from "./components/TopArea/TopArea";
+import Explore from './components/Explore/Explore';
+import Reviews from './components/Reviews/Reviews';
+import Blog from './components/Blog/Blog';
+import Contact from './components/Contact/Contact';
+import NotFound from './components/NotFound/NotFound';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 function App() {
 
