@@ -1,4 +1,4 @@
-.create-pass-layout {
+.create-account-layout {
     background-color: #f8fafb;
     padding: 150px 0;
     display: flex;
@@ -7,16 +7,17 @@
     gap: 1em;
 }
 
-.create-pass-title {
+.create-account-title {
     font-weight: 700;
 }
 
-.create-pass-form {
+.create-account-form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1.7em;
 }
 
+.email,
 .password,
 .confirm-password {
     padding: 4px 8px;
@@ -29,4 +30,10 @@
     font-size: 1.7em;
     padding: 8px 16px;
     border-radius: 4px;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
 }
