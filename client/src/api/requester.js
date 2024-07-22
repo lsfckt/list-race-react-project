@@ -1,4 +1,4 @@
-export default async function requester(method, url) {
+export default async function requester(method, url, data) {
 
     const options = {};
 
@@ -16,6 +16,7 @@ export default async function requester(method, url) {
 
     const response = await fetch(url, options);
     const result = await response.json();
+
 
     return result;
 }
