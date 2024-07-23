@@ -39,7 +39,7 @@ export default function Register() {
 
     return (
         <div className={styles['create-account-layout']}>
-            <h3 className={styles['create-account-title']}>Create your password</h3>
+            <h3 className={styles['create-account-title']}>Create your account</h3>
             <p>Use a minimum of 10 symbols, including upper and lower case letters and numbers.</p>
 
             <form className={styles['create-account-form']} onSubmit={handleSubmit}>
