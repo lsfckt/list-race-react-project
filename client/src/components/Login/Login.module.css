@@ -1,4 +1,4 @@
-.enter-pass-layout {
+.login-layout {
     background-color: #f8fafb;
     padding: 150px 0;
     display: flex;
@@ -7,16 +7,17 @@
     gap: 1em;
 }
 
-.enter-pass-title {
+.login-title {
     font-weight: 700;
 }
 
-.enter-pass-form {
+.login-form {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
+.email,
 .password {
     padding: 4px 8px;
 }
@@ -28,4 +29,10 @@
     font-size: 1.7em;
     padding: 8px 16px;
     border-radius: 4px;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
 }
