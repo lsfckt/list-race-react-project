@@ -7,10 +7,7 @@ import * as requester from '../../api/requester';
 export default function Register() {
 
     const [submitClicked, setSubmitClicked] = useState(false);
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    });
+    const [formData, setFormData] = useState({});
 
     const navigate = useNavigate();
 
@@ -32,7 +29,7 @@ export default function Register() {
         (async () => {
             if (submitClicked) {
                 const newUser = await requester.post('http://localhost:3030/users/register', { ...formData });
-                console.log(newUser);
+                navigate('/');
             }
 
             setSubmitClicked(false);
