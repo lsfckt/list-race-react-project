@@ -29,8 +29,18 @@ export default function Login() {
         (async () => {
 
             if (submitClicked) {
-                const user = await requester.post('http://localhost:3030/users/login', { ...formData })
-                navigate('/');
+
+                try {
+                    const user = await requester.post('http://localhost:3030/users/login', { ...formData });
+
+                    const accessToken = user.accessToken;
+                    localStorage.setItem('accessToken', accessToken);
+
+                    navigate('/');
+                } catch (err) {
+                    console.log(err.message);
+                }
+
             }
 
             setSubmitClicked(false);
