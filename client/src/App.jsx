@@ -12,6 +12,7 @@ import Contact from './components/Contact/Contact';
 import NotFound from './components/NotFound/NotFound';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
+import RegisterBusiness from './components/RegisterBusiness/RegisterBusiness';
 
 function App() {
 
@@ -27,10 +28,10 @@ function App() {
                 <Route path='/reviews' element={<Reviews />} />
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/contact' element={<Contact />} />
-                <Route path='*' element={<NotFound />} />
-
                 <Route path='/register' element={<Register />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/register/business' element={<RegisterBusiness />} />
+                <Route path='*' element={<NotFound />} />
             </Routes>
 
             <Footer />
