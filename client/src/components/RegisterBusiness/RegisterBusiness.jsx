@@ -22,7 +22,7 @@ export default function RegisterBusiness() {
                 </div>
                 <div className={styles['labels']}>
                     <label htmlFor="description">Description</label>
-                    <textarea type="textarea" name="description" id="description" placeholder="Describe your business in a few words." className={styles['business-desc']}></textarea>
+                    <textarea rows={7} type="textarea" name="description" id="description" placeholder="Describe your business in a few words." className={styles['business-desc']}></textarea>
                 </div>
 
                 <button type="submit" className={styles['business-btn-submit']}>Register your business</button>
