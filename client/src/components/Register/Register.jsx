@@ -28,8 +28,16 @@ export default function Register() {
     useEffect(() => {
         (async () => {
             if (submitClicked) {
-                const newUser = await requester.post('http://localhost:3030/users/register', { ...formData });
-                navigate('/');
+                try {
+                    const newUser = await requester.post('http://localhost:3030/users/register', { ...formData });
+                    
+                    const accessToken = user.accessToken;
+                    localStorage.setItem('accessToken', accessToken);
+
+                    navigate('/');
+                } catch (err) {
+                    console.log(err.message);
+                }
             }
 
             setSubmitClicked(false);
