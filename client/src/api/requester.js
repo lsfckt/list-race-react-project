@@ -1,4 +1,4 @@
-export default async function requester(method, url, data) {
+export default async function requester(method, url, data, accessToken) {
 
     const options = {};
 
@@ -7,9 +7,18 @@ export default async function requester(method, url, data) {
     }
 
     if (data) {
-        options.headers = {
-            'Content-Type': 'application/json',
-        };
+        
+        if (!accessToken) {
+            options.headers = {
+                'Content-Type': 'application/json',
+            };
+
+        } else {
+            options.headers = {
+                'Content-Type': 'application/json',
+                'X-Authorization': accessToken,
+            };
+        }
 
         options.body = JSON.stringify(data);
     }
