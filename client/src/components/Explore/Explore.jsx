@@ -27,7 +27,7 @@ export default function Explore() {
                                     <div className=" col-md-4 col-sm-6">
                                         <div className="single-explore-item">
                                             <div className="single-explore-img">
-                                                <img src="assets/images/explore/e1.jpg" alt="explore image" />
+                                                <img src={business.image} alt="explore image" />
                                                 <div className="single-explore-img-info">
                                                     <div className="single-explore-image-icon-box">
                                                         <ul>
