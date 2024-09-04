@@ -31,7 +31,7 @@ export default function Register() {
                 try {
                     const newUser = await requester.post('http://localhost:3030/users/register', { ...formData });
                     
-                    const accessToken = user.accessToken;
+                    const accessToken = newUser.accessToken;
                     localStorage.setItem('accessToken', accessToken);
 
                     navigate('/');

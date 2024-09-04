@@ -7,8 +7,9 @@ export default function Explore() {
 
     useEffect(() => {
         (async () => {
-            const data = await requester.get('http://localhost:3030/data/business-catalog');
-            const catalog = setBusiness(data);
+            const business = await requester.get('http://localhost:3030/data/business-catalog');
+
+            setBusiness(business);
         })();
     }, []);
 
@@ -27,7 +28,7 @@ export default function Explore() {
                                     <div className=" col-md-4 col-sm-6">
                                         <div className="single-explore-item">
                                             <div className="single-explore-img">
-                                                <img src="assets/images/explore/e1.jpg" alt="explore image" />
+                                                <img src={business.imgage} alt="explore image" />
                                                 <div className="single-explore-img-info">
                                                     <div className="single-explore-image-icon-box">
                                                         <ul>
