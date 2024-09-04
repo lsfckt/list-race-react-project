@@ -3,25 +3,16 @@ import { useEffect, useState } from 'react';
 import styles from './Login.module.css';
 import * as requester from '../../api/requester';
 import { useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
 
+const loginFormKeys = {
+    email,
+    password,
+}
 
 export default function Login() {
 
-    const [submitClicked, setSubmitClicked] = useState(false);
-    const [formData, setFormData] = useState({});
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSubmitClicked(true);
-    }
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        })
-    }
+    //TODO: update with useForm hook
 
     const navigate = useNavigate();
 
