@@ -23,8 +23,8 @@ export default function Explore() {
                 <div className="explore-content">
                     <div className="row">
                         <ul>
-                            {business.map(business => (
-                                <li key={business._id}>
+                            {Object.values(business).map(currBussiness => (
+                                <li key={currBussiness._id}>
                                     <div className=" col-md-4 col-sm-6">
                                         <div className="single-explore-item">
                                             <div className="single-explore-img">
@@ -47,7 +47,7 @@ export default function Explore() {
                                                 </div>
                                             </div>
                                             <div className="single-explore-txt bg-theme-1">
-                                                <h2><a href="#">{business.businessName}</a></h2>
+                                                <h2><a href="#">{currBussiness.businessName}</a></h2>
                                                 <p className="explore-rating-price">
                                                     <span className="explore-rating">5.0</span>
                                                     <a href="#"> 10 ratings</a>
@@ -55,7 +55,7 @@ export default function Explore() {
                                                         form
                                                         <span className="explore-price">5$-300$</span>
                                                     </span>
-                                                    <a href="#">{business.businessType}</a>
+                                                    <a href="#">{currBussiness.businessType}</a>
                                                 </p>
                                                 <div className="explore-person">
                                                     <div className="row">
@@ -67,7 +67,7 @@ export default function Explore() {
                                                             </div>
                                                         </div>
                                                         <div className="col-sm-10">
-                                                            <p>{business.description}</p>
+                                                            <p>{currBussiness.description}</p>
                                                         </div>
                                                     </div>
                                                 </div>
