@@ -1,19 +1,22 @@
-import { useEffect, useState } from 'react';
-
 import styles from './Login.module.css';
-import * as requester from '../../api/requester';
-import { useNavigate } from 'react-router-dom';
-import useForm from '../../hooks/useForm';
 
-const loginFormKeys = {
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import * as requester from '../../api/requester';
+import { useForm } from '../../hooks/useForm';
+
+const initialValues = {
     email: 'email',
     password: 'password',
 }
 
 export default function Login() {
 
+    const [user, setUser] = useState(initialValues);
+
     //TODO: update with useForm hook
-    useForm(loginFormKeys, )
+    const { values, changeHandler, submitHandler } = useForm(initialValues);
 
     const navigate = useNavigate();
 
@@ -23,8 +26,10 @@ export default function Login() {
             if (submitClicked) {
 
                 try {
-                    const user = await requester.post('http://localhost:3030/users/login', { ...formData });
+                    const user = await requester.post('http://localhost:3030/users/login', { ...user });
 
+                    setUser(user);
+                    
                     const accessToken = user.accessToken;
                     localStorage.setItem('accessToken', accessToken);
 
@@ -44,14 +49,14 @@ export default function Login() {
         <div className={styles['login-layout']}>
             <h3 className={styles['login-title']}>Login to your account</h3>
 
-            <form className={styles['login-form']} onSubmit={handleSubmit}>
+            <form className={styles['login-form']} onSubmit={submitHandler}>
                 <div className={styles['labels']}>
                     <label htmlFor="email">Email</label>
-                    <input className={styles['email']} type="email" name="email" id="email" placeholder="Enter your email" onChange={handleChange} />
+                    <input className={styles['email']} type="email" name="email" id="email" placeholder="Enter your email" onChange={changeHandler} />
                 </div>
                 <div className={styles['labels']}>
                     <label htmlFor="password">Password</label>
-                    <input className={styles['password']} type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange} />
+                    <input className={styles['password']} type="password" name="password" id="password" placeholder="Enter your password" onChange={changeHandler} />
                 </div>
 
                 <button type="submit" className={styles['login-btn-submit']}>Login</button>
