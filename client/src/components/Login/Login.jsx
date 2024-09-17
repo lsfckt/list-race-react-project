@@ -6,13 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 
 const loginFormKeys = {
-    email,
-    password,
+    email: 'email',
+    password: 'password',
 }
 
 export default function Login() {
 
     //TODO: update with useForm hook
+    useForm(loginFormKeys, )
 
     const navigate = useNavigate();
 
