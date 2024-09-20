@@ -1,4 +1,4 @@
-export default async function requester(method, url, data, accessToken) {
+async function requester(method, url, data, accessToken) {
 
     const options = {};
 
@@ -7,7 +7,7 @@ export default async function requester(method, url, data, accessToken) {
     }
 
     if (data) {
-        
+
         if (!accessToken) {
             options.headers = {
                 'Content-Type': 'application/json',
@@ -34,3 +34,11 @@ export const post = requester.bind(null, 'POST');
 export const put = requester.bind(null, 'PUT');
 export const patch = requester.bind(null, 'PATCH');
 export const del = requester.bind(null, 'DELETE');
+
+export default {
+    get,
+    post,
+    put,
+    patch,
+    del
+}

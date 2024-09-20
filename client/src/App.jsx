@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Footer from "./components/Footer/Footer";
@@ -13,11 +14,25 @@ import NotFound from './components/NotFound/NotFound';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import RegisterBusiness from './components/RegisterBusiness/RegisterBusiness';
+import { AuthContext } from './contexts/AuthContext';
 
 function App() {
+    const [authState, setAuthState] = useState({});
+
+    const changeAuthState = (state) => {
+        setAuthState(state);
+    }
+
+    const contextData = {
+        userId: authState._id,
+        email: authState.email,
+        accessToken: authState.accessToken,
+        isAuthenticated: !!authState.email,
+        changeAuthState,
+    }
 
     return (
-        <>
+        <AuthContext.Provider value={contextData}>
             <Header />
             <TopArea />
 
@@ -35,7 +50,7 @@ function App() {
             </Routes>
 
             <Footer />
-        </>
+        </AuthContext.Provider>
     )
 }
 
