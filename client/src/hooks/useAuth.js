@@ -4,10 +4,14 @@ import { login, register } from "../api/auth-api";
 import { AuthContext } from "../contexts/AuthContext";
 
 export const useLogin = () => {
+    const { changeAuthState } = useContext(AuthContext);
+
     const loginHandler = async (email, password) => {
         const result = await login(email, password);
 
-        // TODO: update app state
+        changeAuthState(result);
+
+        return result;
     }
 
     return loginHandler;
