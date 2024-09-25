@@ -7,8 +7,7 @@ async function requester(method, url, data, accessToken) {
     }
 
     if (data) {
-
-        if (!accessToken) {
+        if (!accessToken) {            
             options.headers = {
                 'Content-Type': 'application/json',
             };

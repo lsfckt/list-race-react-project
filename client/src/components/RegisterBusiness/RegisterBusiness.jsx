@@ -1,74 +1,90 @@
 import styles from './RegisterBusiness.module.css';
 
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 import * as requester from '../../api/requester';
+import { useForm } from '../../hooks/useForm';
+import { AuthContext } from '../../contexts/AuthContext';
 
+const initialValues = {
+    image: '',
+    businessName: '',
+    businessType: '',
+    description: '',
+}
 
 export default function RegisterBusiness() {
+    const navigate = useNavigate();
+    const { accessToken } = useContext(AuthContext);
 
-    const navigate = useNavigate()
+    const registerBusinessHandler = async (businessValues) => {
+        try {
+            await requester.post('http://localhost:3030/data/business-catalog', businessValues, accessToken);
 
-    const [submitClicked, setSubmitClicked] = useState(false);
-    const [formData, setFormData] = useState({});
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSubmitClicked(true);
+            navigate('/explore');
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+    const { values, changeHandler, submitHandler } = useForm(initialValues, registerBusinessHandler);
 
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    }
-
-    useEffect(() => {
-        (async () => {
-            if (submitClicked) {
-                const accessToken = localStorage.getItem('accessToken');
-
-                try {
-                    const newBusiness = await requester.post('http://localhost:3030/data/business-catalog', { ...formData }, accessToken);
-                    console.log(newBusiness);
-                    navigate('/explore');
-                    
-                } catch (err) {
-                    console.log(err.message);
-                }
-
-            }
-
-            setSubmitClicked(false);
-        })();
-
-    }, [submitClicked]);
 
     return (
         <div className={styles['business-layout']}>
 
             <h3 className={styles['business-title']}>Register your business</h3>
 
-            <form className={styles['business-form']} onSubmit={handleSubmit}>
+            <form className={styles['business-form']} onSubmit={submitHandler}>
                 <div className={styles['labels']}>
                     <label htmlFor="image">Image</label>
-                    <input type="text" name="image" id="image" placeholder="Insert link to image" className={styles['image']} onChange={handleChange} />
+                    <input
+                        type="text"
+                        name="image"
+                        id="image"
+                        placeholder="Insert link to image"
+                        className={styles['image']}
+                        value={values.image}
+                        onChange={changeHandler}
+                    />
                 </div>
                 <div className={styles['labels']}>
                     <label htmlFor="businessName">Business name</label>
-                    <input type="text" name="businessName" id="businessName" placeholder="Write your business name" className={styles['business-name']} onChange={handleChange} />
+                    <input
+                        type="text"
+                        name="businessName"
+                        id="businessName"
+                        placeholder="Write your business name"
+                        className={styles['business-name']}
+                        value={values.businessName}
+                        onChange={changeHandler}
+                    />
                 </div>
                 <div className={styles['labels']}>
                     <label htmlFor="businessType">Business type</label>
-                    <input type="text" name="businessType" id="businessType" placeholder="What kind of type is your business?" className={styles['business-type']} onChange={handleChange} />
+                    <input
+                        type="text"
+                        name="businessType"
+                        id="businessType"
+                        placeholder="What kind of type is your business?"
+                        className={styles['business-type']}
+                        value={values.businessType}
+                        onChange={changeHandler}
+                    />
                 </div>
                 <div className={styles['labels']}>
                     <label htmlFor="description">Description</label>
-                    <textarea rows={7} type="textarea" name="description" id="description" placeholder="Describe your business in a few words." className={styles['business-desc']} onChange={handleChange}></textarea>
+                    <textarea
+                        rows={7}
+                        type="textarea"
+                        name="description"
+                        id="description"
+                        placeholder="Describe your business in a few words."
+                        className={styles['business-desc']}
+                        value={values.description}
+                        onChange={changeHandler}
+                    ></textarea>
                 </div>
 
                 <button type="submit" className={styles['business-btn-submit']}>Register your business</button>
