@@ -1,4 +1,29 @@
+import { useState } from "react";
+
 export default function WelcomeHero() {
+    const [userLocation, setUserLocation] = useState(null);
+
+    const getUserLocation = () => {
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    setUserLocation({ latitude, longitude });
+                },
+                (error) => {
+                    // display an error if we cant get the users position
+                    console.error('Error getting user location:', error);
+                }
+            );
+
+        }
+        else {
+            // display an error if not supported
+            console.error('Geolocation is not supported by this browser.');
+        }
+    };
+
     return (
         <section id="home" className="welcome-hero">
             <div className="container">
@@ -25,7 +50,7 @@ export default function WelcomeHero() {
                                 <input type="text" placeholder="Ex: london, newyork, rome" />
                             </form>
                             <div className="welcome-hero-form-icon">
-                                <i className="flaticon-gps-fixed-indicator"></i>
+                                <button onClick={getUserLocation} className="flaticon-gps-fixed-indicator"></button>
                             </div>
                         </div>
                     </div>
