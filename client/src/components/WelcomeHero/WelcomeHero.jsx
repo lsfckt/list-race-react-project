@@ -60,7 +60,12 @@ export default function WelcomeHero() {
                         <div className="single-welcome-hero-form">
                             <h3>location</h3>
                             <form action="index.html">
-                                <input type="text" placeholder="Ex: london, newyork, rome" value={userLocation} />
+                                <input
+                                    type="text"
+                                    placeholder="Ex: london, newyork, rome"
+                                    value={userLocation}
+                                    onChange={(e) => setUserLocation(e.target.value)}
+                                />
                             </form>
                             <div className="welcome-hero-form-icon">
                                 <button onClick={getUserLocation} className="flaticon-gps-fixed-indicator"></button>
