@@ -1,41 +1,8 @@
-import { useState } from "react";
-
-import requester from "../../api/requester";
-
-const API_KEY = 'AIzaSyC5ekbxTjvsdMDDWXQyK4VrtDcJonMPC-4';
+import { getUserLocation } from "../../utils/getUserLocation"
 
 export default function WelcomeHero() {
-    const [userLocation, setUserLocation] = useState(null);
 
-    const getUserLocation = () => {
-        if (navigator.geolocation) {
-
-            navigator.geolocation.getCurrentPosition(
-                async (position) => {
-                    const { latitude, longitude } = position.coords;
-
-                    const locationResult = await requester.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}`);
-                    const locationArray = locationResult.results[0];
-
-                    const city = locationArray.address_components.find((component) =>
-                        component.types.includes("locality")
-                    );
-
-                    setUserLocation(city.long_name);
-
-                },
-                (error) => {
-                    // display an error if we cant get the users position
-                    console.error('Error getting user location:', error);
-                }
-            );
-
-        }
-        else {
-            // display an error if not supported
-            console.error('Geolocation is not supported by this browser.');
-        }
-    };
+    const { getLocationHandler, userLocation, changeHandler } = getUserLocation();
 
     return (
         <section id="home" className="welcome-hero">
@@ -64,11 +31,11 @@ export default function WelcomeHero() {
                                     type="text"
                                     placeholder="Ex: london, newyork, rome"
                                     value={userLocation}
-                                    onChange={(e) => setUserLocation(e.target.value)}
+                                    onChange={changeHandler}
                                 />
                             </form>
                             <div className="welcome-hero-form-icon">
-                                <button onClick={getUserLocation} className="flaticon-gps-fixed-indicator"></button>
+                                <button onClick={getLocationHandler} className="flaticon-gps-fixed-indicator"></button>
                             </div>
                         </div>
                     </div>
