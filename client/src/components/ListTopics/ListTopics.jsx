@@ -11,7 +11,7 @@ export default function ListTopics() {
                                 <div className="single-list-topics-icon">
                                     <i className="flaticon-restaurant"></i>
                                 </div>
-                                <h2><a href="#">resturent</a></h2>
+                                <h2><a href="#">restaurant</a></h2>
                                 <p>150 listings</p>
                             </div>
                         </li>
