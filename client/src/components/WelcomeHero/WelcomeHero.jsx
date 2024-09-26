@@ -20,9 +20,6 @@ export default function WelcomeHero() {
                             <form action="index.html">
                                 <input type="text" placeholder="Ex: place, restaurant, food, automobile" />
                             </form>
-                            <div className="welcome-hero-form-icon">
-                                <i className="flaticon-list-with-dots"></i>
-                            </div>
                         </div>
                         <div className="single-welcome-hero-form">
                             <h3>location</h3>
