@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+import requester from "../../api/requester";
+
+const API_KEY = 'AIzaSyC5ekbxTjvsdMDDWXQyK4VrtDcJonMPC-4';
+
 export default function WelcomeHero() {
     const [userLocation, setUserLocation] = useState(null);
 
@@ -7,9 +11,18 @@ export default function WelcomeHero() {
         if (navigator.geolocation) {
 
             navigator.geolocation.getCurrentPosition(
-                (position) => {
+                async (position) => {
                     const { latitude, longitude } = position.coords;
-                    setUserLocation({ latitude, longitude });
+
+                    const locationResult = await requester.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}`);
+                    const locationArray = locationResult.results[0];
+
+                    const city = locationArray.address_components.find((component) =>
+                        component.types.includes("locality")
+                    );
+
+                    setUserLocation(city.long_name);
+
                 },
                 (error) => {
                     // display an error if we cant get the users position
@@ -47,7 +60,7 @@ export default function WelcomeHero() {
                         <div className="single-welcome-hero-form">
                             <h3>location</h3>
                             <form action="index.html">
-                                <input type="text" placeholder="Ex: london, newyork, rome" />
+                                <input type="text" placeholder="Ex: london, newyork, rome" value={userLocation} />
                             </form>
                             <div className="welcome-hero-form-icon">
                                 <button onClick={getUserLocation} className="flaticon-gps-fixed-indicator"></button>
