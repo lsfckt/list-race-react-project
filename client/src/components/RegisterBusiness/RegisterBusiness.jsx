@@ -20,7 +20,7 @@ export default function RegisterBusiness() {
 
     const registerBusinessHandler = async (businessValues) => {
         try {
-            await requester.post('http://localhost:3030/data/business-catalog', businessValues, accessToken);
+            await requester.post('http://localhost:3030/jsonstore/business-catalog', businessValues, accessToken);
 
             navigate('/explore');
         } catch (error) {

@@ -7,7 +7,7 @@ export default function Explore() {
 
     useEffect(() => {
         (async () => {
-            const business = await requester.get('http://localhost:3030/data/business-catalog');
+            const business = await requester.get('http://localhost:3030/jsonstore/business-catalog');
 
             setBusiness(business);
         })();
