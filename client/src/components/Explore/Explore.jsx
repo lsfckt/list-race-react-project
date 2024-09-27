@@ -2,6 +2,7 @@ import { getAll } from "../../hooks/useBusiness"
 
 export default function Explore() {
     const business = getAll();
+    console.log(business);
 
     return (
         <section id="explore" className="explore">
@@ -18,7 +19,7 @@ export default function Explore() {
                                     <div className=" col-md-4 col-sm-6">
                                         <div className="single-explore-item">
                                             <div className="single-explore-img">
-                                                <img src={currBussiness.image} alt="explore image" />
+                                                <img src={currBussiness.businessImage} alt="explore image" />
                                                 <div className="single-explore-img-info">
                                                     <div className="single-explore-image-icon-box">
                                                         <ul>
@@ -42,10 +43,11 @@ export default function Explore() {
                                                     <span className="explore-rating">5.0</span>
                                                     <a href="#"> 10 ratings</a>
                                                     <span className="explore-price-box">
-                                                        form
+                                                        from
                                                         <span className="explore-price">5$-300$</span>
                                                     </span>
-                                                    <a href="#">{currBussiness.businessType}</a>
+                                                    <span className="explore-type">{currBussiness.businessType}</span>
+                                                    <span className="explore-place">{currBussiness.businessPlace}</span>
                                                 </p>
                                                 <div className="explore-person">
                                                     <div className="row">
