@@ -8,10 +8,11 @@ import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const initialValues = {
-    image: '',
+    businessImage: '',
     businessName: '',
     businessType: '',
-    description: '',
+    businessPlace: '',
+    businessDescription: '',
 }
 
 export default function RegisterBusiness() {
@@ -74,6 +75,18 @@ export default function RegisterBusiness() {
                     />
                 </div>
                 <div className={styles['labels']}>
+                    <label htmlFor="businessName">Business name</label>
+                    <input
+                        type="text"
+                        name="businessPlace"
+                        id="businessPlace"
+                        placeholder="Write where is placed your business"
+                        className={styles['business-place']}
+                        value={values.businessName}
+                        onChange={changeHandler}
+                    />
+                </div>
+                <div className={styles['labels']}>
                     <label htmlFor="description">Description</label>
                     <textarea
                         rows={7}
@@ -82,7 +95,7 @@ export default function RegisterBusiness() {
                         id="description"
                         placeholder="Describe your business in a few words."
                         className={styles['business-desc']}
-                        value={values.description}
+                        value={values.businessPlace}
                         onChange={changeHandler}
                     ></textarea>
                 </div>

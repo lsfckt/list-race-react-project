@@ -1,17 +1,7 @@
-import { useEffect, useState } from 'react';
-import * as requester from '../../api/requester';
+import { getAll } from "../../hooks/useBusiness"
 
 export default function Explore() {
-
-    const [business, setBusiness] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            const business = await requester.get('http://localhost:3030/jsonstore/business-catalog');
-
-            setBusiness(business);
-        })();
-    }, []);
+    const business = getAll();
 
     return (
         <section id="explore" className="explore">
