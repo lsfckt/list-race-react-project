@@ -8,7 +8,7 @@ export const getAll = () => {
 
     useEffect(() => {
         (async () => {
-            const result = await requester.get('http://localhost:3030/jsonstore/business-catalog');
+            const result = await requester.get('http://localhost:3030/data/business-catalog');
 
             setBusiness(result);
         })();

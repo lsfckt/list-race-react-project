@@ -11,7 +11,7 @@ const initialValues = {
     businessImage: '',
     businessName: '',
     businessType: '',
-    businessPlace: '',
+    businessLocation: '',
     businessDescription: '',
 }
 
@@ -21,7 +21,7 @@ export default function RegisterBusiness() {
 
     const registerBusinessHandler = async (businessValues) => {
         try {
-            await requester.post('http://localhost:3030/jsonstore/business-catalog', businessValues, accessToken);
+            await requester.post('http://localhost:3030/data/business-catalog', businessValues, accessToken);
 
             navigate('/explore');
         } catch (error) {
@@ -42,11 +42,11 @@ export default function RegisterBusiness() {
                     <label htmlFor="image">Image</label>
                     <input
                         type="text"
-                        name="image"
+                        name="businessImage"
                         id="image"
                         placeholder="Insert link to image"
                         className={styles['image']}
-                        value={values.image}
+                        value={values.businessImage}
                         onChange={changeHandler}
                     />
                 </div>
@@ -75,27 +75,27 @@ export default function RegisterBusiness() {
                     />
                 </div>
                 <div className={styles['labels']}>
-                    <label htmlFor="businessName">Business name</label>
+                    <label htmlFor="businessLocation">Business Location</label>
                     <input
                         type="text"
-                        name="businessPlace"
-                        id="businessPlace"
-                        placeholder="Write where is placed your business"
-                        className={styles['business-place']}
-                        value={values.businessName}
+                        name="businessLocation"
+                        id="businessLocation"
+                        placeholder="Where is located your business?"
+                        className={styles['business-location']}
+                        value={values.businessLocation}
                         onChange={changeHandler}
                     />
                 </div>
                 <div className={styles['labels']}>
-                    <label htmlFor="description">Description</label>
+                    <label htmlFor="businessDescription">Description</label>
                     <textarea
                         rows={7}
                         type="textarea"
-                        name="description"
+                        name="businessDescription"
                         id="description"
                         placeholder="Describe your business in a few words."
                         className={styles['business-desc']}
-                        value={values.businessPlace}
+                        value={values.businessDescription}
                         onChange={changeHandler}
                     ></textarea>
                 </div>

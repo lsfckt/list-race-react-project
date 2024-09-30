@@ -2,7 +2,6 @@ import { getAll } from "../../hooks/useBusiness"
 
 export default function Explore() {
     const business = getAll();
-    console.log(business);
 
     return (
         <section id="explore" className="explore">
@@ -47,7 +46,7 @@ export default function Explore() {
                                                         <span className="explore-price">5$-300$</span>
                                                     </span>
                                                     <span className="explore-type">{currBussiness.businessType}</span>
-                                                    <span className="explore-place">{currBussiness.businessPlace}</span>
+                                                    <span className="explore-location">{currBussiness.businessLocation}</span>
                                                 </p>
                                                 <div className="explore-person">
                                                     <div className="row">
@@ -59,7 +58,7 @@ export default function Explore() {
                                                             </div>
                                                         </div>
                                                         <div className="col-sm-10">
-                                                            <p>{currBussiness.description}</p>
+                                                            <p>{currBussiness.businessDescription}</p>
                                                         </div>
                                                     </div>
                                                 </div>
