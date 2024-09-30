@@ -14,7 +14,7 @@ export const getUserLocation = () => {
                 async (position) => {
                     const { latitude, longitude } = position.coords;
 
-                    const locationResult = await requester.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${API_KEY}`);
+                    const locationResult = await requester.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&language=en&key=${API_KEY}`);
                     const locationArray = locationResult.results[0];
 
                     const city = locationArray.address_components.find((component) =>
