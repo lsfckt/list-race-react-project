@@ -7,11 +7,15 @@ async function requester(method, url, data, accessToken) {
     }
 
     if (data) {
-        if (!accessToken) {            
+        if (!accessToken) {
             options.headers = {
                 'Content-Type': 'application/json',
             };
 
+        } else if (url.includes('cloudinary')) {
+            options.headers = {
+                'Content-Type': 'multipart/form-data'
+            };
         } else {
             options.headers = {
                 'Content-Type': 'application/json',
