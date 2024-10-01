@@ -1,7 +1,8 @@
 import styles from './RegisterBusiness.module.css';
 
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import axios from 'axios';
 
 import * as requester from '../../api/requester';
 import { useForm } from '../../hooks/useForm';
@@ -19,6 +20,28 @@ export default function RegisterBusiness() {
     const navigate = useNavigate();
     const { accessToken } = useContext(AuthContext);
 
+    function UploadImage() {
+        const [imageSelected, setImageSelected] = useState(null);
+        const [imageUrl, setImageUrl] = useState('');
+
+        const uploadImage = () => {
+            const formData = new FormData();
+            formData.append("file", imageSelected);
+            formData.append("upload_preset", "your_upload_preset");
+
+            axios.post(
+                "https://api.cloudinary.com/v1_1/dgwsgatut/image/upload",
+                formData
+            )
+                .then((response) => {
+                    setImageUrl(response.data.secure_url);
+                })
+                .catch((error) => {
+                    console.error("Error uploading the image:", error);
+                });
+        };
+    };
+
     const registerBusinessHandler = async (businessValues) => {
         try {
             await requester.post('http://localhost:3030/data/business-catalog', businessValues, accessToken);
@@ -31,7 +54,6 @@ export default function RegisterBusiness() {
 
     const { values, changeHandler, submitHandler } = useForm(initialValues, registerBusinessHandler);
 
-
     return (
         <div className={styles['business-layout']}>
 
@@ -41,14 +63,16 @@ export default function RegisterBusiness() {
                 <div className={styles['labels']}>
                     <label htmlFor="image">Image</label>
                     <input
-                        type="text"
+                        type="file"
                         name="businessImage"
                         id="image"
-                        placeholder="Insert link to image"
                         className={styles['image']}
-                        value={values.businessImage}
-                        onChange={changeHandler}
+                        onChange={(event) => {
+                            setImageSelected(event.target.files[0]);
+                        }}
                     />
+                    <button onClick={UploadImage}>Upload image</button>
+                    {imageUrl && <img src={imageUrl} alt='Uploaded' />}
                 </div>
                 <div className={styles['labels']}>
                     <label htmlFor="businessName">Business name</label>
