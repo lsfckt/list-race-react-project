@@ -40,6 +40,10 @@ export default function RegisterBusiness() {
                     console.error("Error uploading the image:", error);
                 });
         };
+
+        return {
+            
+        }
     };
 
     const registerBusinessHandler = async (businessValues) => {

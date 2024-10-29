@@ -2,8 +2,6 @@ import { useState } from "react";
 
 import requester from "../api/requester";
 
-const API_KEY = 'AIzaSyC5ekbxTjvsdMDDWXQyK4VrtDcJonMPC-4';
-
 export const getUserLocation = () => {
     const [userLocation, setUserLocation] = useState(null);
 
@@ -14,7 +12,9 @@ export const getUserLocation = () => {
                 async (position) => {
                     const { latitude, longitude } = position.coords;
 
-                    const locationResult = await requester.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&language=en&key=${API_KEY}`);
+                    const API_LOCATION_KEY = import.meta.env.VITE_LOCATION_API_KEY;
+
+                    const locationResult = await requester.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&language=en&key=${API_LOCATION_KEY}`);
                     const locationArray = locationResult.results[0];
 
                     const city = locationArray.address_components.find((component) =>
