@@ -35,7 +35,12 @@ To run the project locally:
 4. Start the server:
    ```bash
    cd .\server\
-   npm run start
+   npm run start\
+
+## Environments Usage
+
+[How to add API_KEY](API_KEY_README.md)
+   
 ## Seeded Test Data
 
 The project includes seeded data with several test users, which can be used to access and test the functionality:
